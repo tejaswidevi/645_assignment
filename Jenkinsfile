@@ -3,22 +3,22 @@ pipeline {
     stages {
         stage('Build JAR') {
             steps {
-                sh 'jar -cvf 645hw2.war *'
+                sh 'jar -cvf tej123.war *'
             }
         }
         stage('Build Docker image') {
             steps {
-                sh 'docker build -t madhavnemani/sixfourfive .'
+                sh 'docker build -t tejaswi251100/tejaswidevi .'
             }
         }
         stage('Login to Docker Hub') {
             steps {
-                sh 'docker login -u madhavnemani -p {{pass}}'
+                sh 'docker login -u tejaswi251100 -p {{docker_pass}}'
             }
         }
         stage('Push Docker image') {
             steps {
-                sh 'docker push madhavnemani/sixfourfive'
+                sh 'docker push tejaswi251100/tejaswidevi'
             }
         }
         stage('Copy kubeconfig') {
