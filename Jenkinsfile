@@ -26,6 +26,11 @@ pipeline {
                 sh 'docker push tejaswi251100/tejaswidevi'
             }
         }
+        stage('Copy kubeconfig') {
+            steps {
+                sh 'cp config ~/.kube/config'
+            }
+        }
         stage('Restart deployment') {
             steps {
                 sh 'kubectl rollout restart deployment/a'
