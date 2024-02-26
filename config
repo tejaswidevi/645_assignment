@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Config
+clusters:
+- name: "csco"
+  cluster:
+    server: "https://54.211.17.31/k8s/clusters/c-m-br2dqrrn"
+    certificate-authority-data: "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJ2akNDQ\
+      VdPZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQkdNUnd3R2dZRFZRUUtFeE5rZVc1aGJXbGoKY\
+      kdsemRHVnVaWEl0YjNKbk1TWXdKQVlEVlFRRERCMWtlVzVoYldsamJHbHpkR1Z1WlhJdFkyRkFNV\
+      GN3T0RjMApOekUxT0RBZUZ3MHlOREF5TWpRd016VTVNVGhhRncwek5EQXlNakV3TXpVNU1UaGFNR\
+      Vl4SERBYUJnTlZCQW9UCkUyUjVibUZ0YVdOc2FYTjBaVzVsY2kxdmNtY3hKakFrQmdOVkJBTU1IV\
+      1I1Ym1GdGFXTnNhWE4wWlc1bGNpMWoKWVVBeE56QTROelEzTVRVNE1Ga3dFd1lIS29aSXpqMENBU\
+      VlJS29aSXpqMERBUWNEUWdBRTR2ZE1qM3YvNFMzdApGemRMczJuWDVickVNQUNSb1V4UmdWN1YrN\
+      zFya1V0dnpxdjBZSngrQWVlT284QXpNNVAvS1hFT1lHa3JQVDdhCmlQbnFzUjVTaHFOQ01FQXdEZ\
+      1lEVlIwUEFRSC9CQVFEQWdLa01BOEdBMVVkRXdFQi93UUZNQU1CQWY4d0hRWUQKVlIwT0JCWUVGT\
+      3RlWmh2N0UxY1dHYnlmSG9lUmIwSmVvR01jTUFvR0NDcUdTTTQ5QkFNQ0Ewa0FNRVlDSVFETQplc\
+      FhpTmhZb3VPVzRESmE4WjRZMGFOMVZocWFEUHdZVWVDZGFCT01SUlFJaEFNUTdDMFlHSGp6TDYzT\
+      1pHRndGCkJBc0tORUowUkpNNVk2VG9aRGd6b3g1RQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t"
+
+users:
+- name: "csco"
+  user:
+    token: "kubeconfig-user-mp82j6td46:s78t9pwqv87cwc5p5qcp8pmhkgnfg7q8nrv94grw28t66kmcqg49bh"
+
+
+contexts:
+- name: "csco"
+  context:
+    user: "csco"
+    cluster: "csco"
+
+current-context: "csco"
