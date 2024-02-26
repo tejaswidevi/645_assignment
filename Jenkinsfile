@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials-id')
+    }
     stages {
         stage('Build JAR') {
             steps {
@@ -13,7 +16,9 @@ pipeline {
         }
         stage('Login to Docker Hub') {
             steps {
-                sh 'docker login -u tejaswi251100 -p {{docker_pass}}'
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials-id', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                    sh "docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD"
+                }
             }
         }
         stage('Push Docker image') {
@@ -21,14 +26,9 @@ pipeline {
                 sh 'docker push tejaswi251100/tejaswidevi'
             }
         }
-        stage('Copy kubeconfig') {
-            steps {
-                sh 'cp config ~/.kube/config'
-            }
-        }
         stage('Restart deployment') {
             steps {
-                sh 'kubectl rollout restart deployment/sixfourfive'
+                sh 'kubectl rollout restart deployment/a'
             }
         }
     }
