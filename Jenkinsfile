@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Copy kubeconfig') {
             steps {
-                sh 'cp config ~/.kube/config'
+                sh 'cp ./config ~/.kube/config'
             }
         }
         stage('Restart deployment') {
