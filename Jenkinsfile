@@ -26,7 +26,7 @@ pipeline {
                 sh 'docker push tejaswi251100/tejaswidevi'
             }
         }
-        stage('Restart deployment') {
+        stage('Deployment') {
             steps {
                 sh 'kubectl rollout restart deployment/a'
             }
